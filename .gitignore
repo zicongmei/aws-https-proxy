@@ -1,3 +1,5 @@
 .idea/
 
 terraform.tfvars.json
+.terraform*
+.terraform
