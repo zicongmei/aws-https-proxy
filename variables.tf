@@ -10,3 +10,9 @@ variable "password" {
   type        = string
   default     = ""
 }
+
+variable "input_ip" {
+  description = "input ip"
+  type        = string
+  default     = "0.0.0.0/0"
+}

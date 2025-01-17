@@ -30,14 +30,14 @@ resource "aws_security_group" "public" {
   description = "security group for public EC2 "
   vpc_id      = aws_vpc.this.id
 
-  ingress {
-    description      = "port 80 for nginx"
-    from_port        = 80
-    to_port          = 80
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-  }
+  # ingress {
+  #   description      = "port 80 for nginx"
+  #   from_port        = 80
+  #   to_port          = 80
+  #   protocol         = "tcp"
+  #   cidr_blocks      = ["0.0.0.0/0"]
+  #   ipv6_cidr_blocks = ["::/0"]
+  # }
 
   ingress {
     description      = "port 22 for ssh"
@@ -53,8 +53,8 @@ resource "aws_security_group" "public" {
     from_port        = 3128
     to_port          = 3128
     protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
+    cidr_blocks      = [var.input_ip]
+    # ipv6_cidr_blocks = ["::/0"]
   }
 
   egress {
